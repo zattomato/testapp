@@ -1,4 +1,4 @@
-name: Echo Workflow
+name: Test Workflow
 
 on:
   push:
@@ -9,18 +9,26 @@ on:
       - prod
 
 jobs:
-  echo-job:
+  build-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build Step
+      run: echo "This is the test build job echo step."
+
+  test-job:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Echo Step 1
-      run: echo "This is the first echo step."
+    - name: Test Step
+      run: echo "This is the test test job echo step."
 
-    - name: Echo Step 2
-      run: echo "This is the second echo step."
+  deploy-job:
+    runs-on: ubuntu-latest
 
-    - name: Echo Step 3
-      run: echo "This is the third echo step."
+    steps:
+    - name: Deploy Step
+      run: echo "This is the test deploy echo step."
