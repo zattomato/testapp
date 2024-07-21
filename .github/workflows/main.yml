@@ -1,0 +1,26 @@
+name: Echo Workflow
+
+on:
+  push:
+    branches:
+      - prod
+  pull_request:
+    branches:
+      - prod
+
+jobs:
+  echo-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Echo Step 1
+      run: echo "This is the first echo step."
+
+    - name: Echo Step 2
+      run: echo "This is the second echo step."
+
+    - name: Echo Step 3
+      run: echo "This is the third echo step."
